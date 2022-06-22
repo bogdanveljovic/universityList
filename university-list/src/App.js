@@ -4,9 +4,17 @@ import Universities from "./components/Universities";
 function App() {
   const [loading, setLoading] = useState(true);
   const [universities, setUniveristies] = useState([]);
-  
+
   const apiUrl = "https://api.jsonbin.io/b/62b1bd16402a5b3802324935" ;
 
+  const deletedCard = (id) => {
+    const filtered = universities.filter ((university) => {
+     return university.id !== id   
+    })
+    setUniveristies(filtered)
+  }
+
+  
   useEffect(() => {
     const getUniversitiesList = async () => {
         // setLoading(true);
@@ -21,19 +29,23 @@ function App() {
 
 
 
+
   if (loading) {
     return <h1>
       <div className="App">
        <header>
-          {loading ? <h1>Loading...</h1> : <Universities universities={universities} />}
+        <h1>Loading...</h1> 
        </header>
       </div>
     </h1>
   }
 
+  
+
   return (
     <div className="App">
-      <Universities universities= {universities} />
+      <Universities universities= {universities} deletedCard = {deletedCard} />
+      {universities.length > 0 ?  <Universities universities= {universities} deletedCard = {deletedCard} /> : <h1>No more Universities</h1> }
     </div>
   );
 }
