@@ -4,6 +4,7 @@ import Universities from "./components/Universities";
 function App() {
   const [loading, setLoading] = useState(true);
   const [universities, setUniveristies] = useState([]);
+  
   const apiUrl = "https://api.jsonbin.io/b/62b1bd16402a5b3802324935" ;
 
   useEffect(() => {
