@@ -27,9 +27,6 @@ function App() {
     //  console.log(loading)
   },[])
 
-
-
-
   if (loading) {
     return <h1>
       <div className="App">
@@ -39,8 +36,6 @@ function App() {
       </div>
     </h1>
   }
-
-  
 
   return (
     <div className="App">
